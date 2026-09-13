@@ -69,7 +69,7 @@ class ProductController extends Controller
             ]);
 
             redirect('products');
-            
+            exit;
         }
 
         $this->call->view('products/edit', $data);
@@ -93,6 +93,7 @@ class ProductController extends Controller
             $this->ProductModel->deleteProduct($id);
 
             redirect('products');
+            exit;
         }
 
         $this->call->view('products/delete', $data);
