@@ -6,14 +6,11 @@ class AuthMiddleware
 {
     public function handle(Closure $next)
     {
-        if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true)
-        {
-            redirect('login');
-            return;
+        if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+            redirect('not-logged-in');
+            exit; 
         }
 
         return $next();
     }
 }
-
-?>

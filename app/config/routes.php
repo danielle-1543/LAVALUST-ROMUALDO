@@ -18,7 +18,10 @@ $router->any('/products/delete/{id}', 'ProductController::delete')->middleware('
 
 /* LOGIN */
 
-$router->any('/login', 'AuthController::login');
+$router->any('/login', function(){
+$_SESSION['logged_in'] =true;
+
+});
 
 
 /* NOT LOGGED IN */

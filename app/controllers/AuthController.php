@@ -31,10 +31,7 @@ class AuthController extends Controller
     }
 
 
-    public function create()
-    {
-        echo 'CREATE CONTROLLER WORKS';
-    }
+ 
 
 }
 
