@@ -27,6 +27,12 @@ class ProductController extends Controller
     public function create()
     {
 
+    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true)
+    {
+        redirect('login');
+        exit;
+    }
+
     if ($this->request->method() == 'post')
     {
         $this->ProductModel->create([
@@ -38,7 +44,7 @@ class ProductController extends Controller
         ]);
 
         redirect('products');
-        return;
+        exit;
     }
 
     $this->call->view('products/create');
@@ -68,6 +74,7 @@ class ProductController extends Controller
             ]);
 
             redirect('products');
+            
         }
 
         $this->call->view('products/edit', $data);
