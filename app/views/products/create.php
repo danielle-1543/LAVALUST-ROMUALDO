@@ -146,8 +146,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
         <h1 class="form-title">Add Product</h1> 
  
-        <form action="<?php echo site_url('products/create'); ?>" method="POST"> 
- 
+            <form action="/products/create" method="POST">
             <div class="field">
                 <label>Product Name</label>
                 <input type="text" name="product_name" required>
@@ -172,7 +171,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
  
         </form> 
  
-        <a class="back" href="<?php echo site_url('products'); ?>"> 
+        <a class="back" href="/products">
             Back to Products 
         </a>
 
