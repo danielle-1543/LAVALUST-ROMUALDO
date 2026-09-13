@@ -4,6 +4,8 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 
 /* LOGIN */
+$router->any('/', 'AuthController::login');
+
 
 $router->any('/login', 'AuthController::login');
 
