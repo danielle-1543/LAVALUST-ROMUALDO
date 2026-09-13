@@ -139,7 +139,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
     <div class="brand">
         <h1>REVERIE COSMETICS</h1>
-        <p>Add New Makeup Products</p>
+        <p>Add  Makeup Products</p>
     </div>
 
     <div class="form-box">
