@@ -27,11 +27,6 @@ class ProductController extends Controller
     public function create()
     {
 
-    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true)
-    {
-        redirect('login');
-        exit;
-    }
 
     if ($this->request->method() == 'post')
     {
