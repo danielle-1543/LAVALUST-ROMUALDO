@@ -7,14 +7,12 @@ class ProductController extends Controller
     {
         parent::__construct();
 
-        // 1. Start standard session
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
 
-        // 2. Protect ALL product routes
         if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-            redirect('login');
+            header('Location: ' . site_url('login'));
             exit();
         }
 
@@ -39,7 +37,8 @@ class ProductController extends Controller
                 'created_at'   => date('Y-m-d H:i:s')
             ]);
 
-            redirect('products');
+            // Direct native PHP redirect to bypass LavaLust helper hangs on Render
+            header('Location: ' . site_url('products'));
             exit();
         }
 
@@ -51,7 +50,7 @@ class ProductController extends Controller
         $data['product'] = $this->ProductModel->getById($id);
 
         if (!$data['product']) {
-            redirect('products');
+            header('Location: ' . site_url('products'));
             exit();
         }
 
@@ -63,7 +62,7 @@ class ProductController extends Controller
                 'quantity'     => $this->request->post('quantity')
             ]);
 
-            redirect('products');
+            header('Location: ' . site_url('products'));
             exit();
         }
 
@@ -75,14 +74,14 @@ class ProductController extends Controller
         $data['product'] = $this->ProductModel->getById($id);
 
         if (!$data['product']) {
-            redirect('products');
+            header('Location: ' . site_url('products'));
             exit();
         }
 
         if ($this->request->method() == 'post') {
             $this->ProductModel->deleteProduct($id);
 
-            redirect('products');
+            header('Location: ' . site_url('products'));
             exit();
         }
 
