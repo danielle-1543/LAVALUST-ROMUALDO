@@ -7,7 +7,7 @@ $router->any('/', 'AuthController::login');
 $router->any('/login', 'AuthController::login');
 
 
-$router->get('/', 'ProductController::index')->middleware('auth');
+
 
 $router->get('/products', 'ProductController::index')->middleware('auth');
 
